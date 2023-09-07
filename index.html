@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <link rel="stylesheet" type="text/css" href="formvalidation.css">
+
+    <div class="bg"><h2>SIGN UP FOR MORE UPDATES</h2>
+
+    <form id="verificationForm">
+
+        <label for="username">Username:</label>
+
+        <input type="text" id="username" maxlength="5" name="username"><br><br>
+
+
+
+        <label for="email">Email:</label>
+
+        <input type="text" id="email" name="email"><br><br>
+
+
+
+        <label for="phone">Phone Number:</label>
+
+        <input type="text" id="phone" name="phone"><br><br>
+
+
+
+        <label for="password">Create Password:</label>
+
+        <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password"><br><br>
+
+
+
+        <label for="confirmPassword">Confirm Password:</label>
+
+        <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+
+
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+
+
+    <p id="errorMessages" class="error"></p>
+
+</div>
+
+
+
+    <script>
+
+        document.getElementById('verificationForm').addEventListener('submit', function (e) {
+
+            e.preventDefault(); // Prevent form submission
+
+
+
+            // Get form values
+
+            const username = document.getElementById('username').value;
+
+            const email = document.getElementById('email').value;
+
+            const phone = document.getElementById('phone').value;
+
+            const password = document.getElementById('password').value;
+
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+
+
+
+
+            if (!username || !email || !phone || !password || !confirmPassword) {
+
+                document.getElementById('errorMessages').textContent = 'All fields are required';
+
+                return;
+
+            }
+
+
+
+            if (password !== confirmPassword) {
+
+                document.getElementById('errorMessages').textContent = 'Passwords do not match';
+
+                return;
+
+            }
+
+            document.getElementById('errorMessages').textContent = 'Form submitted successfully!';
+
+        });
+
+    </script>
+    <head>
+
+    <title>Verification Form</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background-color: #ffa500;
+
+            
+
+    }
+
+        .bg{
+
+            background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+
+   }
+
+
+
+        h2 {
+
+            text-align: center;
+
+         color: #fFF;
+
+         
+
+        }
+
+
+
+        #verificationForm {
+
+            background-color: #fff;
+
+            max-width: 400px;
+
+            margin: 0 auto;
+
+            padding: 20px;
+
+            border-radius: 5px;
+
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-weight: bold;
+
+        }
+
+
+
+        input[type="text"],
+
+        input[type="password"] {
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-bottom: 10px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 3px;
+
+        }
+
+
+
+        input[type="submit"] {
+
+            background-color: #333;
+
+            color: #fff;
+
+            padding: 10px 15px;
+
+            border: none;
+
+            border-radius: 3px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        input[type="submit"]:hover {
+
+            background-color: #555;
+
+        }
+
+
+
+        .error {
+
+            padding: 20px;
+
+  background-color: #f44336; /* Red */
+
+  color: darkred;
+
+  margin-bottom: 15px;
+
+        }
+
+        .error {
+  text-align:center;=
+  margin-left: 15px;
+
+  color: white;
+
+  font-weight: bold;
+
+  float: right;
+
+  font-size: 22px;
+
+  line-height: 20px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.error:hover {
+
+  color: black;
+
+}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    </style>
+
+</body>
+
+</html>
